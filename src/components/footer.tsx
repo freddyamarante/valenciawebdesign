@@ -1,32 +1,34 @@
 import { PlusGrid, PlusGridItem, PlusGridRow } from '@/components/plus-grid'
 import { Button } from './button'
 import { Container } from './container'
-import { Gradient } from './gradient'
+import { GradientScene } from './gradient'
 import { Link } from './link'
 import { Logo } from './logo'
 import { Subheading } from './text'
 
 function CallToAction() {
   return (
-    <div className="relative pt-20 pb-16 text-center sm:py-24">
-      <hgroup>
-        <Subheading>Get started</Subheading>
-        <p className="mt-6 text-3xl font-medium tracking-tight text-gray-950 sm:text-5xl">
-          Ready to dive in?
-          <br />
-          Start your free trial today.
-        </p>
-      </hgroup>
-      <p className="mx-auto mt-6 max-w-xs text-sm/6 text-gray-500">
-        Get the cheat codes for selling and unlock your team&apos;s revenue
-        potential.
-      </p>
-      <div className="mt-6">
-        <Button className="w-full sm:w-auto" href="#">
-          Get started
-        </Button>
+      <div className="relative pt-20 pb-16 text-center sm:py-24">
+        <div className='relative z-10'>
+          <hgroup>
+            <Subheading>Get started</Subheading>
+            <p className="mt-6 text-3xl font-medium tracking-tight text-gray-950 sm:text-5xl">
+              Ready to dive in?
+              <br />
+              Start your free trial today.
+            </p>
+          </hgroup>
+          <p className="mx-auto mt-6 max-w-xs text-sm/6 text-gray-500">
+            Get the cheat codes for selling and unlock your team&apos;s revenue
+            potential.
+          </p>
+          <div className="mt-6">
+            <Button className="w-full sm:w-auto" href="#">
+              Get started
+            </Button>
+          </div>
+        </div>
       </div>
-    </div>
   )
 }
 
@@ -156,38 +158,42 @@ function Copyright() {
 export function Footer() {
   return (
     <footer>
-      <Gradient className="relative">
-        <div className="absolute inset-2 rounded-4xl bg-white/80" />
-        <Container>
-          <CallToAction />
-          <PlusGrid className="pb-16">
-            <PlusGridRow>
-              <div className="grid grid-cols-2 gap-y-10 pb-6 lg:grid-cols-6 lg:gap-8">
-                <div className="col-span-2 flex">
-                  <PlusGridItem className="pt-6 lg:pb-6">
-                    <Logo className="h-9" />
-                  </PlusGridItem>
+      <div className="relative p-3">
+        <div className="absolute inset-0 bottom-0">
+          <GradientScene fov={45} />
+        </div>
+        <div className='rounded-4xl border border-transparent bg-white/15 ring shadow-md backdrop-blur-sm ring-[#D15052]/15'>
+          <Container>
+            <CallToAction />
+            <div className="pb-16">
+              <div className='group/row relative isolate pt-[calc(--spacing(2)+1px)] last:pb-[calc(--spacing(2)+1px)]'>
+                <div className="grid grid-cols-2 gap-y-10 pb-6 lg:grid-cols-6 lg:gap-8">
+                  <div className="col-span-2 flex">
+                    <div className="pt-6 lg:pb-6">
+                      <Logo className="h-24" />
+                    </div>
+                  </div>
+                  <div className="col-span-2 grid grid-cols-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
+                    <Sitemap />
+                  </div>
                 </div>
-                <div className="col-span-2 grid grid-cols-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
-                  <Sitemap />
+              </div>
+              <div className="group/row relative isolate pt-[calc(--spacing(2)+1px)] last:pb-[calc(--spacing(2)+1px)]">
+                <div>
+                  <div className="py-3">
+                    <Copyright />
+                  </div>
+                </div>
+                <div className="flex">
+                  <div className="flex items-center gap-8 py-3">
+                    <SocialLinks />
+                  </div>
                 </div>
               </div>
-            </PlusGridRow>
-            <PlusGridRow className="flex justify-between">
-              <div>
-                <PlusGridItem className="py-3">
-                  <Copyright />
-                </PlusGridItem>
-              </div>
-              <div className="flex">
-                <PlusGridItem className="flex items-center gap-8 py-3">
-                  <SocialLinks />
-                </PlusGridItem>
-              </div>
-            </PlusGridRow>
-          </PlusGrid>
-        </Container>
-      </Gradient>
+            </div>
+          </Container>
+        </div>
+      </div>
     </footer>
   )
 }

@@ -8,8 +8,8 @@ export function Container({
   children: React.ReactNode
 }) {
   return (
-    <div className={clsx(className, 'px-6 lg:px-8')}>
-      <div className="mx-auto max-w-2xl lg:max-w-7xl">{children}</div>
+    <div className={clsx(className, 'px-2 lg:px-4')}>
+      <div className="mx-auto max-w-2xl lg:max-w-7xl xl:max-w-[1440px]">{children}</div>
     </div>
   )
 }

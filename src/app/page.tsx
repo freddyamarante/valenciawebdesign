@@ -2,7 +2,7 @@ import { BentoCard } from '@/components/bento-card'
 import { Button } from '@/components/button'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
-import { Gradient } from '@/components/gradient'
+import { GradientScene } from '@/components/gradient'
 import { Keyboard } from '@/components/keyboard'
 import { Link } from '@/components/link'
 import { LinkedAvatars } from '@/components/linked-avatars'
@@ -25,7 +25,9 @@ export const metadata: Metadata = {
 function Hero() {
   return (
     <div className="relative min-h-screen">
-      <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
+      <div className="absolute inset-0 rounded-4xl bottom-0 ring-1 ring-black/5 ring-inset p-2">
+        <GradientScene className="rounded-4xl" />
+      </div>
       <Container className="relative">
         <Navbar
           banner={
@@ -38,15 +40,15 @@ function Hero() {
             </Link>
           }
         />
-        <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
-          <h1 className="font-display text-6xl/[0.9] font-medium tracking-tight text-balance text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
+        <div className=" flex flex-col items-center pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-64 md:pb-48">
+          <h1 className="text-center font-display text-6xl/[0.9] font-medium tracking-tight text-balance text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8] opacity-75">
             Close every deal.
           </h1>
-          <p className="mt-8 max-w-lg text-xl/7 font-medium text-gray-950/75 sm:text-2xl/8">
+          <p className="text-center mt-8 max-w-2xl text-xl/7 font-medium text-gray-950/75 sm:text-2xl/8 opacity-75">
             Radiant helps you sell more by revealing sensitive information about
             your customers.
           </p>
-          <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
+          <div className="mt-6 flex flex-col items-center gap-x-6 gap-y-4 sm:flex-row">
             <Button href="#">Get started</Button>
             <Button variant="secondary" href="/pricing">
               See pricing
